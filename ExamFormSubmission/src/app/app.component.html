@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="" sizes="64x64" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    </head> 
+    <body>
+    <div *ngIf="isLoginSuccessful==0">
+        <div id = "progress"></div>
+    <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #2C5364; border-bottom:1px solid black;box-shadow: 3px 3px 5px;">
+            <div class="container" style = "font-family:'PT Serif';font-size:22px;padding-right:0px;margin-right:0%;">
+                <a class="navbar-brand" href="https://www.mgmccsit.ac.in/About_mgm.htm">
+                    <h3 style = "font-family:'PT Serif';" >
+                      <img src="https://upload.wikimedia.org/wikipedia/en/4/41/MGM_Institute_of_Health_Sciences_Logo.png" width="70" style = "border-radius:50%;border:1px black;background-color:white;" height="70" alt="MGM's"/> 
+                      <span class = "mh3">MGM's</span><br/><p style = "margin-left:6%;font-size:12px;margin-top:0;position:absolute;top:80px">College of Computer Science & IT, Nanded, Maharashtra-431605<br/></p></h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mnav" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" name="login" id="login" (click)="show(1)"><i class="fa fa-key" aria-hidden="true"></i> Login
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" (click)="show(2)"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" (click)="show(3)"><i class="fa fa-lock" aria-hidden="true"></i> Admin</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" (click)="show(4)"><i class="fa fa-question" aria-hidden="true"></i>About</a>
+                        </li>
+                
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" (click)="show(5)"><i class="fa fa-comment-dots" aria-hidden="true"></i>FeedBack</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" (click)="show(6)"><i class="fa fa-info-circle" aria-hidden="true"></i>Help?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <!-- Home Page Selector -->
+    <div *ngIf="whatToShow==1">
+        <img width="100%" src="assets/images/mgm.jpg" alt="" style="position: absolute;">
+        <app-loginform></app-loginform>
+    </div> 
+          
+    <div *ngIf="whatToShow==2">
+        <app-registrationform></app-registrationform>
+    </div>
+          
+    <div *ngIf="whatToShow==3">
+        <app-adminlogin></app-adminlogin>
+    </div>
+          
+    <div *ngIf="whatToShow==4">
+        <app-aboutform></app-aboutform>
+    </div>
+          
+    <div *ngIf="whatToShow==5">
+        <app-feedbackform></app-feedbackform>
+    </div>
+
+    <div *ngIf="whatToShow==6">
+        <app-help></app-help>
+    </div>
+
+    <div *ngIf="whatToShow==0">
+        <h1 style="position: absolute; margin-top: 3%; margin-left: 42%; 
+            font-weight: bold; font-family: monospace; color: rgb(4, 58, 58);">
+            Welocome To
+        </h1>
+        <h4 style="position: absolute; margin-top: 6%; margin-left: 20%; 
+            font-family: monospace; color: rgb(4, 58, 58);">
+            Mahatma Gandhi Mission's College of Computer Science & IT, Nanded.
+        </h4>
+        <button class="but-59" (click)="show(1)">Login</button>
+        <button class="butn-60" (click)="show(2)">Register</button>
+        <a href="https://www.mgmccsit.ac.in/index.htm">
+            <button>
+            >> GET STARTED...
+            </button>
+        </a>
+        <img width="100%" src="assets/images/home1.jpg" alt="">
+    </div>
+
+    </div>
+
+
+
+<!-- Dasboard Code  -->
+<div *ngIf="isLoginSuccessful==1">
+    <app-admindashboard></app-admindashboard>
+</div>
+
+<div *ngIf="isLoginSuccessful==2">
+    <app-userdashboard></app-userdashboard>
+</div>
+
+</body>
+</html>

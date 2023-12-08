@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> || Admin Dashboard || </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxs-dashboard'></i>
+    <span class="logo_name"><b>Dashboard</b></span>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active" (click)="show(0)">
+            <i class='bx bxs-dashboard'></i>            
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="show(9)" (click)="registerInfo()">
+            <i class='bx bx-box'></i>
+            <span class="links_name">RegisteredUserInfo</span>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="#">
+            <i class='bx bxs-lock-alt'></i>
+            <span class="links_name">Change Password</span>
+          </a>
+        </li> -->
+        <li>
+          <a href="#" (click)="show(1)" (click)="showExamDetails()">
+            <i class='bx bxs-bookmark-alt-plus'></i>
+            <span class="links_name">ExamFormInfo</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="show(11)">
+            <i class='bx bxs-download'></i>
+            <span class="links_name" name="exam" id="exam">Verified All Exam Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="show(8)" (click)="feedBackGet()">
+            <i class='bx bxs-message-detail'></i>
+            <span class="links_name">Messages of user</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="show(10)">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="links_name">Admin Profile</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="#" (click)="logout(0)">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+
+  <div *ngIf="whatToShow==0">
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard"><b>Dashboard</b></span>
+      </div>
+      <div class="profile-details">
+       <a href="#"><img src="assets/images/Balaji.jpg" alt="" style="border-radius: 50%;"></a> 
+        <span class="admin_name">{{ userInfo.name }}<br><p style="font-size: 10px; color: darkgreen; font-weight: bold;">Administrator</p></span>
+      </div>
+    </nav>
+
+    <!-- First Line -->
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box" (click)="show(2)" (click)="showExamDetails()">
+          <div class="right-side">
+            <div class="box-topic"><b>Sem 1st</b></div>
+            <div class="number">0</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text"><b>click here</b></span>
+            </div>
+          </div>
+          <i class='bx bx-book-reader'></i>
+        </div>
+        <div class="box" (click)="show(3)">
+          <div class="right-side">
+            <div class="box-topic"><b>Sem 2nd</b></div>
+            <div class="number">0</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text"><b>click here</b></span>
+            </div>
+          </div>
+          <i class='bx bx-book-reader'></i>
+        </div>
+        <div class="box" (click)="show(4)">
+          <div class="right-side">
+            <div class="box-topic"><b>Sem 3rd</b></div>
+            <div class="number">0</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">click here</span>
+            </div>
+          </div>
+          <i class='bx bx-book-reader'></i>
+        </div>
+        <div class="box" (click)="show(5)">
+          <div class="right-side">
+            <div class="box-topic"><b>Sem 4rt</b></div>
+            <div class="number">0</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">click here</span>
+            </div>
+          </div>
+          <i class='bx bx-book-reader'></i>
+        </div>
+      </div>
+      <!-- Second Line  -->
+      </div>
+      <div class="home-content">
+        <div class="overview-boxes">
+          <div class="box" (click)="show(6)">
+            <div class="right-side">
+              <div class="box-topic"><b>Sem 5th</b></div>
+              <div class="number">0</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text"><b>click here</b></span>
+              </div>
+            </div>
+            <i class='bx bx-book-reader'></i>
+          </div>
+          <div class="box" (click)="show(7)">
+            <div class="right-side">
+              <div class="box-topic"><b>Sem 6th</b></div>
+              <div class="number">0</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text"><b>click here</b></span>
+              </div>
+            </div>
+            <i class='bx bx-book-reader'></i>
+          </div>
+          <div class="box" (click)="show(1)" (click)="showExamDetails()">
+            <div class="right-side">
+              <div class="box-topic"><b>Exam Form Info</b></div>
+              <div class="number">0</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">click here</span>
+              </div>
+            </div>
+            <i class='bx bxs-spreadsheet'></i>
+          </div>
+          <div class="box" (click)="show(9)" (click)="registerInfo()">
+            <div class="right-side">
+              <div class="box-topic"><b>UserRegi Info</b></div>
+              <div class="number">0</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">click here</span>
+              </div>
+            </div>
+            <i class='bx bxs-user-account'></i>
+          </div>
+        </div>
+        </div>
+
+        <!-- Third Line -->
+        
+  </section>
+</div>
+
+<!-- Exam Form Code table -->
+<div *ngIf="whatToShow==1">
+  <br>
+  <h4>#Exam Forms Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let user of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Year:</strong> {{ user.year }}<br>
+          <strong class="strong">First Name:</strong> {{ user.firstName }}<br>
+          <strong class="strong">Middle Name:</strong> {{ user.middleName }}<br>
+          <strong class="strong">Last Name:</strong> {{ user.lastName }}<br>
+          <strong class="strong">Mother Name:</strong> {{ user.motherName }}<br>
+          <strong class="strong">Date of Birth:</strong> {{ user.dateOfBirth | date:'medium' }}<br>
+          <strong class="strong">Gender:</strong> {{ user.gender }}<br>
+          <strong class="strong">Email I'D:</strong> {{ user.emailOfStud }}<br>
+          <strong class="strong">Contact Number:</strong> {{ user.phoneNumber }}<br>
+          <strong class="strong">Address:</strong> {{ user.addressOfStud }}<br>
+          <strong class="strong">Category:</strong> {{ user.caste }}<br>
+          <strong class="strong">Name of Exam:</strong> {{ user.nameOfExam }}<br>
+          <strong class="strong">Seat Number:</strong> {{ user.seatNumber }}<br>
+          <strong class="strong">Exam Form Date:</strong> {{ user.monthAndYearDate | date:'medium' }}<br>
+          <strong class="strong">College Name:</strong> {{ user.collegeName }}<br>
+          <strong class="strong">University Name:</strong> {{ user.universityName }}<br>
+          <strong class="strong">Result:</strong> {{ user.resultOfStud }}<br>
+          <strong class="strong">Course Name:</strong> {{ user.courseName }}<br>
+          <strong class="strong">Year of Graduation:</strong> {{ user.selectYear }}<br>
+          <strong class="strong">Semester:</strong> {{ user.selectSemester }}<br>
+          <strong class="strong">Regular Subject 1st:</strong> {{ user.regSubOne }}<br>
+          <strong class="strong">Regular Subject 2nd:</strong> {{ user.regSubTwo }}<br>
+          <strong class="strong">Regular Subject 3rd:</strong> {{ user.regSubThree }}<br>
+          <strong class="strong">Regular Subject 4th:</strong> {{ user.regSubFour }}<br>
+          <strong class="strong">Regular Subject 5th:</strong> {{ user.regSubFive }}<br>
+          <strong class="strong">Regular Subject 6th:</strong> {{ user.regSubSix }}<br>
+          <strong class="strong">Baglog Subject 1st:</strong> {{ user.backSubOne }}<br>
+          <strong class="strong">Baglog Subject 2nd:</strong> {{ user.backSubTwo }}<br>
+          <strong class="strong">Baglog Subject 3rd:</strong> {{ user.backSubThree }}<br>
+          <strong class="strong">Baglog Subject 4th:</strong> {{ user.backSubFour }}<br>
+          <strong class="strong">Baglog Subject 5th:</strong> {{ user.backSubFive }}<br>
+          <strong class="strong">Baglog Subject 6th:</strong> {{ user.backSubSix }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+           <button type="button" class="btn btn-outline-secondary" *ngIf="user.status !== 'Verified'" (click)="markVerifyExamForm(user)">Verify</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(user.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+    <span>
+      <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+    </span>
+  </ul>
+  <br>
+</div>
+
+<!-- Semester one Table  -->
+<div *ngIf="whatToShow==2">
+  <br>
+  <h4>#sem 1st Details!!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let one of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Regular Subject:</strong> {{ one.regSubOne }}<br>
+          <strong class="strong">Back-Log Subject:</strong> {{ one.backSubOne }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(one.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Semester Two Table -->
+<div *ngIf="whatToShow==3">
+  <br>
+  <h4>#sem 2nd Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let one of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Regular Subject:</strong> {{ one.regSubTwo }}<br>
+          <strong class="strong">Back-Log Subject:</strong> {{ one.backSubTwo }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(one.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Semester Three Table -->
+<div *ngIf="whatToShow==4">
+  <br>
+  <h4>#sem 3rd Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let one of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Regular Subject:</strong> {{ one.regSubThree }}<br>
+          <strong class="strong">Back-Log Subject:</strong> {{ one.backSubThree }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(one.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Semester Four Table -->
+<div *ngIf="whatToShow==5">
+  <br>
+  <h4>#sem 4th Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let one of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Regular Subject:</strong> {{ one.regSubFour }}<br>
+          <strong class="strong">Back-Log Subject:</strong> {{ one.backSubFour }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(one.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Semester Five Table -->
+<div *ngIf="whatToShow==6">
+  <br>
+  <h4>#sem 5th Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let one of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Regular Subject:</strong> {{ one.regSubFive }}<br>
+          <strong class="strong">Back-Log Subject:</strong> {{ one.backSubFive }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(one.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Semester Six table -->
+<div *ngIf="whatToShow==7">
+  <br>
+  <h4>#sem 6th Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let one of getExamFormDetails; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Regular Subject:</strong> {{ one.regSubSix }}<br>
+          <strong class="strong">Back-Log Subject:</strong> {{ one.backSubSix }}<br>
+        </span>
+        <br>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success" (click)="downloadExamExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserByExamForm(one.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Feedback data table -->
+<div *ngIf="whatToShow==8">
+  <br>
+  <h4>#Feedback Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let feedback of getFeedback; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Full Name:</strong> {{ feedback.fullName }}<br>
+          <strong class="strong">Email Id:</strong> {{ feedback.emailId }}<br>
+          <strong class="strong">What'sapp No:</strong> {{ feedback.mobileNo }}<br>
+          <strong class="strong">Feedback Message:</strong> {{ feedback.queryMessage }}<br>
+        </span>
+        <span class="user-actions">
+          <button type="button" class="btn btn-outline-success">Action</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserFeedback(feedback.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<!-- Registered user data table -->
+<div *ngIf="whatToShow==9">
+  <br>
+  <h4>#User Registered Details !!</h4><br>
+  <ul class="user-list" id="excel-table">
+    <div *ngFor="let register of getAllRegisteredUser; let i=index">
+      <div class="user-details">
+        <span class="user-info">
+          <strong class="strong">Sr.No:</strong>{{i+1}} <br>
+          <strong class="strong">Full Name:</strong> {{ register.name }}<br>
+          <strong class="strong">Address:</strong> {{ register.address }}<br>
+          <strong class="strong">Email Id:</strong> {{ register.email }}<br>
+          <strong class="strong">Phone Number:</strong> {{ register.contact }}<br>
+          <strong class="strong">Class Name:</strong> {{ register.className }}<br>
+          <strong class="strong">City Name:</strong> {{ register.city }}<br>
+          <strong class="strong">Registration Date:</strong> {{ register.registrationDate | date:'medium' }}<br>
+        </span>
+        <span class="user-actions">
+          <!-- <button type="button" class="btn btn-outline-secondary">Verify</button>
+          &nbsp; -->
+          <button type="button" class="btn btn-outline-success" (click)="downloadRegisterExcel()">Download</button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUserData(register.id)">Delete</button>
+        </span>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>
+
+<div *ngIf="whatToShow==10">
+  <app-setting></app-setting>
+</div>
+
+<div *ngIf="whatToShow==11">
+  <!-- <app-verified-exam-form></app-verified-exam-form> -->
+  <br>
+  <h4 style="margin-left: 20%; color: cadetblue;">#Verified Exam Forms !!</h4><br>
+  <ul class="user-list" id="verified-exam-table">
+    <div *ngFor="let verifiedForm of verifiedExamForms; let i=index">
+      <div class="user-details">
+          <strong class="strong">Sr.No:</strong> {{ i + 1 }} <br>
+          <strong class="strong">Year:</strong> {{ verifiedForm.year }}<br>
+          <strong class="strong">First Name:</strong> {{ verifiedForm.firstName }}<br>
+          <strong class="strong">Middle Name:</strong> {{ verifiedForm.middleName }}<br>
+          <strong class="strong">Last Name:</strong> {{ verifiedForm.lastName }}<br>
+          <strong class="strong">First Name:</strong> {{ verifiedForm.motherName }}<br>
+          <strong class="strong">Date of Birth:</strong> {{ verifiedForm.dateOfBirth | date:'medium' }}<br>
+          <strong class="strong">Gender:</strong> {{ verifiedForm.gender }}<br>
+          <strong class="strong">Email I'D:</strong> {{ verifiedForm.emailOfStud }}<br>
+          <strong class="strong">Contact Number:</strong> {{ verifiedForm.phoneNumber }}<br>
+          <strong class="strong">Address:</strong> {{ verifiedForm.addressOfStud }}<br>
+          <strong class="strong">Category:</strong> {{ verifiedForm.caste }}<br>
+          <strong class="strong">Name of Exam:</strong> {{ verifiedForm.nameOfExam }}<br>
+          <strong class="strong">Seat Number:</strong> {{ verifiedForm.seatNumber }}<br>
+          <strong class="strong">Exam Form Date:</strong> {{ verifiedForm.monthAndYearDate | date:'medium' }}<br>
+          <strong class="strong">College Name:</strong> {{ verifiedForm.collegeName }}<br>
+          <strong class="strong">University Name:</strong> {{ verifiedForm.universityName }}<br>
+          <strong class="strong">Result:</strong> {{ verifiedForm.resultOfStud }}<br>
+          <strong class="strong">Course Name:</strong> {{ verifiedForm.courseName }}<br>
+          <strong class="strong">Year of Graduation:</strong> {{ verifiedForm.selectYear }}<br>
+          <strong class="strong">Semester:</strong> {{ verifiedForm.selectSemester }}<br>
+          <strong class="strong">Regular Subject 1st:</strong> {{ verifiedForm.regSubOne }}<br>
+          <strong class="strong">Regular Subject 2nd:</strong> {{ verifiedForm.regSubTwo }}<br>
+          <strong class="strong">Regular Subject 3rd:</strong> {{ verifiedForm.regSubThree }}<br>
+          <strong class="strong">Regular Subject 4th:</strong> {{ verifiedForm.regSubFour }}<br>
+          <strong class="strong">Regular Subject 5th:</strong> {{ verifiedForm.regSubFive }}<br>
+          <strong class="strong">Regular Subject 6th:</strong> {{ verifiedForm.regSubSix }}<br>
+          <strong class="strong">Baglog Subject 1st:</strong> {{ verifiedForm.backSubOne }}<br>
+          <strong class="strong">Baglog Subject 2nd:</strong> {{ verifiedForm.backSubTwo }}<br>
+          <strong class="strong">Baglog Subject 3rd:</strong> {{ verifiedForm.backSubThree }}<br>
+          <strong class="strong">Baglog Subject 4th:</strong> {{ verifiedForm.backSubFour }}<br>
+          <strong class="strong">Baglog Subject 5th:</strong> {{ verifiedForm.backSubFive }}<br>
+          <strong class="strong">Baglog Subject 6th:</strong> {{ verifiedForm.backSubSix }}<br> 
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-success" (click)="downloadRegisterExcel()">Download</button>
+  </ul>
+</div>
+
+</body>
+</html>

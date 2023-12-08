@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> | Responsive Registration Form | </title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   </head>
+<body>
+  <div *ngIf="whatToShow==0">
+    <div class="container">
+      <div class="title">REGISTRATION</div>
+      <div class="content">
+        <form>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details" for="name">Full Name</span>
+              <input type="text" placeholder="Enter your name" name="name" id="name" [(ngModel)]="registerUser.name" required (input)="validateName($event)">
+            </div>
+            <div class="input-box">
+              <span class="details">Address</span>
+              <input type="text" placeholder="Enter your address" name="address" id="address" [(ngModel)]="registerUser.address" required (input)="validateAddress($event)">
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="email" placeholder="Enter your email" name="email" id="email" [(ngModel)]="registerUser.email" required>
+              <div *ngIf="formErrors.email" class="error-message">{{ formErrors.email }}</div>
+            </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input type="text" placeholder="Enter your username" name="username" id="username" [(ngModel)]="registerUser.username" required>
+              <div *ngIf="formErrors.username" class="error-message">{{ formErrors.username }}</div>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" placeholder="Enter your password" name="pass" id="pass" [(ngModel)]="registerUser.password" required required>
+              <div *ngIf="formErrors.password" class="error-message">{{ formErrors.password }}</div>
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input type="password" placeholder="Enter your Confirm password" name="pass" id="pass" (blur)="confirmMyPassword($event)" required>
+              <p *ngIf="isErrorShow==1" style="color: green; font-size: smaller;">{{ errorMsg }}</p>
+              <p *ngIf="isErrorShow==2" style="color: red; font-size: smaller;">{{ errorMsg }}</p>
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="text" pattern="[0-9]{10}" placeholder="Enter your number" name="contact" id="contact" [(ngModel)]="registerUser.contact" required maxlength="10" (input)="validatePhoneNumber($event)">
+              <div *ngIf="formErrors.contact" class="error-message">{{ formErrors.contact }}</div>
+            </div>
+            <div class="input-box">
+              <span class="details">City Name</span>
+              <input type="text" placeholder="Enter your City Name" name="city" id="city" [(ngModel)]="registerUser.city" required (input)="validateCity($event)">
+              <div *ngIf="formErrors.city" class="error-message">{{ formErrors.city }}</div>
+            </div>
+            <div class="input-box">
+              <span class="details">Class Name</span>
+              <select class="form-select" id="class" name="class" [(ngModel)]="registerUser.className" required>
+                <option value="#" selected>-select class-</option>
+                <option value="BCA">BCA</option>
+                <option value="Bsc-Cs">Bsc-Cs</option>
+                <option value="BT">BT</option>
+                <option value="BI">BI</option>  
+              </select>
+            </div>
+            <div class="input-box">
+              <span class="details">Registration Date</span>
+              <input type="datetime-local" placeholder="" name="date" id="date" [(ngModel)]="registerUser.registrationDate" required>
+            </div>
+
+            <!-- <div class="input-box" style="margin-left: 25%;">
+              <div class="grid w-full max-w-xs items-center gap-1.5">
+                <label class="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"></label>
+                <input id="picture" name="picture" type="file" class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" [(ngModel)]="registerUser.photo">
+              </div>
+            </div> -->
+
+          </div>
+          <div class="button">
+            <input (click)="userRegister()" type="submit" value="Register">
+          </div>
+          <div class="text-center p-t-115">
+            <span class="txt1">
+              Alredy have an account?
+            </span>
+            <a class="txt2" href="#" (click)="login(1)">
+              log In
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Login page selector call in register page -->
+  <div *ngIf="whatToShow==1">
+    <app-loginform></app-loginform>
+  </div> 
+</body>
+</html>
